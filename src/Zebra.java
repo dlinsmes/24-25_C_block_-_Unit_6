@@ -49,4 +49,24 @@ public class Zebra extends Animal {
         //"super" is used to refer to the parent class version of a method
         return super.toString() + " and is a zebra. fear: " + fear;
     }
+
+    //override equals()
+    public boolean equals(Object o) {
+        if (o instanceof Zebra) {
+            Zebra other = (Zebra) o;
+            if (other.getName().equals(this.getName())
+                    && other.getEnergy() == this.getEnergy()
+                    && other.fear == this.fear) {
+                return true;
+            }
+
+            //same thing - shortcut checking name and energy bc the
+            //Animal class equals() already checks those vars
+            //-access that parent class equals() with super.equals()
+            if (super.equals(other) && other.fear == this.fear) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

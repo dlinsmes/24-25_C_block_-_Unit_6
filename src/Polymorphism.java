@@ -97,5 +97,24 @@ public class Polymorphism {
         System.out.println("a2 == a3: " + (a2==a3));
         System.out.println("a3 == a4: " + (a3==a4));
 
+        //the .equals() method can be overridden so you can define
+        //how two objects are considered equal
+        System.out.println("a2.equals(a3): " + a2.equals(a3));
+        System.out.println("a3.equals(a4): " + a3.equals(a4));
+
+        Zebra z3 = new Zebra("ian", true);
+        Zebra z4 = new Zebra("ian", true);
+        System.out.println("z3.equals(z4): " + z3.equals(z4));
+
+        Animal a5 = new Animal("ian");
+        //this calls equals() from an animal object, and since
+        //z3 is a child of Animal and the name and energy match,
+        //they are considered the same to the Animal equals() method
+        System.out.println("a5.equals(z3): " + a5.equals(z3));
+
+        //this calls equals() from a zebra object, which checks the
+        //actual type to be zebra
+        System.out.println("z3.equals(a5): " + z3.equals(a5));
+
     }
 }
